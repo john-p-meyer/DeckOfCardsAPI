@@ -47,3 +47,5 @@ on a much larger number of potentials.
 In addition, I opted to test the full response to make sure it was correctly returned rather than just the smallest part that would change (e.g. when drawing
 a card, a minimal test would check that cards were returned and that the remaining number of cards is now correct), so error messages were added to make it 
 easier to see what went wrong should a test fail.
+
+There is also a config.json file so you can change where the tests are pointing to for multiple environments.
