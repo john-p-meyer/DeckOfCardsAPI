@@ -19,6 +19,9 @@ git clone https://github.com/john-p-meyer/DeckOfCardsAPI.git
 2. Open DeckOfCardsAPI.sln in Visual Studio
 3. Click Build -> Build Solution
 4. Either run tests from Visual Studio or use testcentric or nunit with the created DeckOfCardsAPI.Tests.dll
+```
+testcentric DeckOfCardsAPI.Test.dll
+```
 
 Methodologies
 -------------
