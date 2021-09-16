@@ -30,7 +30,7 @@ namespace DeckOfCardsAPI.Tests
         [Description("A single default deck created with 52 cards")]
         public void CreateDefaultDeckSuccessfully()
         {
-            var sut = client.Get<NewDeckResponse>(request);
+            var sut = client.Post<NewDeckResponse>(request);
 
             Assert.That(sut.IsSuccessful, Is.True, "The server did not return OK");
             Assert.That(sut.Data.success, Is.True, "The request was not successful");
@@ -45,7 +45,7 @@ namespace DeckOfCardsAPI.Tests
         public int HaveCorrectCardCountWhenjokers_enabledPassed(string jokers_enabled)
         {
             request.AddParameter("jokers_enabled", jokers_enabled);
-            var sut = client.Get<NewDeckResponse>(request);
+            var sut = client.Post<NewDeckResponse>(request);
 
             return sut.Data.remaining;
         }
@@ -57,7 +57,7 @@ namespace DeckOfCardsAPI.Tests
         {
             request.AddParameter("deck_count", deck_count);
             request.AddParameter("jokers_enabled", jokers_enabled);
-            var sut = client.Get<NewDeckResponse>(request);
+            var sut = client.Post<NewDeckResponse>(request);
 
             Assert.That(sut.IsSuccessful, Is.True, "The server did not return OK");
             Assert.That(sut.Data.success, Is.True, "The request was not successful");
@@ -72,7 +72,7 @@ namespace DeckOfCardsAPI.Tests
         public void NotCreateWhenMoreThan20DecksUsed()
         {
             request.AddParameter("deck_count", 21);
-            var sut = client.Get<NewDeckResponse>(request);
+            var sut = client.Post<NewDeckResponse>(request);
 
             Assert.That(sut.IsSuccessful, Is.True, "The server did not return OK");
             Assert.That(sut.Data.success, Is.False, "Error response should have success as false");
